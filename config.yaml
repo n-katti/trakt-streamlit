@@ -1,0 +1,12 @@
+api:
+  url: https://api.trakt.tv
+  client_id: "trakt_client_id"
+  client_secret: "trakt_client_secret"
+  tokens:
+    access_token: "trakt_access_token"
+    refresh_token: "trakt_refresh_token"
+    token_last_updated_on: "trakt_token_last_updated_on"
+  headers:
+    content_type: application/json
+    api_version: 2
+  
