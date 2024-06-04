@@ -54,7 +54,7 @@ api.get_recommended_shows()
 # headers = {
 #     "Content-Type": "application/json",  # Example header
 #     "trakt-api-version" : "2",
-#     "trakt-api-key" : f"{client_id}"
+#     "trakt-api-key" : f"{client_id}
 # }
 
 # params = {
