@@ -1,12 +1,23 @@
-api:
-  url: https://api.trakt.tv
-  client_id: "trakt_client_id"
-  client_secret: "trakt_client_secret"
-  tokens:
-    access_token: "trakt_access_token"
-    refresh_token: "trakt_refresh_token"
-    token_last_updated_on: "trakt_token_last_updated_on"
-  headers:
-    content_type: application/json
-    api_version: 2
-  
+url: https://api.trakt.tv
+client_id: "trakt_client_id"
+client_secret: "trakt_client_secret"
+tokens:
+  access_token: "trakt_access_token"
+  refresh_token: "trakt_refresh_token"
+  token_last_updated_on: "trakt_token_last_updated_on"
+all_headers:
+  Content-Type: application/json
+  trakt-api-version: "2"
+  trakt-api-key: "trakt_client_id"
+  Authorization: "Bearer {trakt_access_token}"
+token_headers: 
+  Content-Type: application/json
+endpoints:
+  Recommended Shows:
+    url: https://api.trakt.tv/recommendations/shows
+    headers: all
+    params:
+      ignore_collected: false
+      ignore_watchlisted: true
+      extended: full
+    results_to_return: 300
