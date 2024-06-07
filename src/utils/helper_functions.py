@@ -5,6 +5,13 @@ import json
 from pathlib import Path
 import sqlite3
 import pandas as pd
+import sys
+sys.dont_write_bytecode = True
+sys.path.append(os.path.realpath(__file__).split("trakt-streamlit")[0]+"trakt-streamlit")
+from src.utils.trakt_api import *
+from src.utils.logger_config import *
+
+db_connection = sqlite3.connect('trakt_data.db')
 
 def load_main_config(filename, env_path):
     load_dotenv()
@@ -52,14 +59,28 @@ def read_json(env_path, file_name):
 def create_sql_connection(database_name):
     return sqlite3.connect(database_name)
 
-def write_table(table_name, df, connection = None, if_exists='replace'):
-
-    if connection is None:
-        connection = sqlite3.connect('trakt_data.db')
+def write_table(table_name, df, connection = db_connection, if_exists='replace'):
 
     # Write DataFrame to SQLite table
     df.to_sql(name=table_name, con=connection, if_exists=if_exists, index=False)
 
     # Close connection if it was established inside the function
-    if connection is not None:
-        connection.close()
+    # if connection is not None:
+    #     connection.close()
+
+def merge_and_write_tables(input_table_names, new_table_name, if_exists='replace', drop_duplicates=False, connection = db_connection):
+    union_query = ' UNION '.join(f'SELECT * FROM {table_name}' for table_name in input_table_names)
+
+    try:
+        union_df = pd.read_sql_query(union_query, connection)
+        write_table(new_table_name, union_df, if_exists=if_exists)
+        logger.info(f'Unioned and inserted successfully to {new_table_name}')
+    except Exception as e:
+        logger.error(f'Failed to union/insert. Eror message: {e}')
+
+def close_db_connection(connection = db_connection):
+    connection.close()
+
+
+    
+

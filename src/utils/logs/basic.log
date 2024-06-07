@@ -1,3 +1,4 @@
 2024-06-06 20:20:53,569 - root - INFO - This will write in basic.log
 2024-06-06 20:20:53,569 - root - WARNING - This will also write in basic.log
 2024-06-06 20:24:01,827 - Trakt API Ingestion Logger - INFO - test
+2024-06-06 22:54:16,699 - Trakt API Ingestion Logger - INFO - Unioned and inserted successfully to dim_genres
