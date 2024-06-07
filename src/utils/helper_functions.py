@@ -6,24 +6,30 @@ from pathlib import Path
 import sqlite3
 import pandas as pd
 
-def load_config(filename, env_path):
+def load_main_config(filename, env_path):
     load_dotenv()
     with open(env_path / filename, 'r') as file:
         config = yaml.safe_load(file)
-        return parse_config(config=config)
+        return parse_main_config(config=config)
     
-def parse_config(config):
+def parse_main_config(config):
+    access_token = os.getenv(config['tokens']['access_token'])
+    client_id = os.getenv(config['client_id'])
+    all_headers = config['all_headers']
+    all_headers['Authorization'] = str.replace(all_headers['Authorization'], "TOKEN_REPLACE_STRING", access_token)
+    all_headers['trakt-api-key'] = client_id
     config_values = {
-                    "url" : config['api']['url'],
-                    "client_id" : os.getenv(config['api']['client_id']),
-                    "client_secret" : os.getenv(config['api']['client_secret']),
-                    "access_token" : os.getenv(config['api']['tokens']['access_token']),
-                    "refresh_token" : os.getenv(config['api']['tokens']['refresh_token']),
-                    "token_last_updated_on" : os.getenv(config['api']['tokens']['token_last_updated_on']),
-                    "content_type" : config['api']['headers']['content_type'],
-                    "api_version" : config['api']['headers']['api_version']
+                    "url" : config['url'],
+                    "client_id" : os.getenv(config['client_id']),
+                    "client_secret" : os.getenv(config['client_secret']),
+                    "access_token" : access_token,
+                    "refresh_token" : os.getenv(config['tokens']['refresh_token']),
+                    "token_last_updated_on" : os.getenv(config['tokens']['token_last_updated_on']),
+                    "all_headers" : all_headers,
+                    "token_headers" : config['token_headers'],
+                    "endpoints" : config['endpoints']
                     }
-
+    
     return config_values
 
 def dump_json(env_path, file_name, data):
