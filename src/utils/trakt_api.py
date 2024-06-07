@@ -56,7 +56,7 @@ class Trakt:
         return data     
     
 
-    def api(self, name, config):
+    def api_call(self, name, config):
         all_results = []
         page = 1
         total_results = 0
@@ -98,6 +98,8 @@ class Trakt:
                 data = response.json()
             except requests.exceptions.RequestException as e:
                 print(f"Error occurred during API call: {e}")
+                print(headers)
+                print(params)
                 return None  # Return None to indicate failure
 
             if not response:
@@ -112,61 +114,6 @@ class Trakt:
             page += 1
 
         return all_results
-
-    def api_call(self, url, params, header, max_pages=None, max_results=100):
-        all_results = []
-        page = 1
-        total_results = 0
-
-        while True:
-            if max_pages is not None and page > max_pages:
-                break
-            if total_results >= max_results:
-                break
-
-            remaining_results = max_results - total_results
-            current_limit = min(100, remaining_results)
-
-            api_params = params.copy()
-            api_params['page'] = f"{page}"
-            api_params['limit'] = f"{current_limit}"
-
-            try:
-                response = requests.get(url, params=api_params, headers=header)
-                response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
-                data = response.json()
-            except requests.exceptions.RequestException as e:
-                print(f"Error occurred during API call: {e}")
-                return None  # Return None to indicate failure
-
-            if not response:
-                break
-
-            all_results.extend(data)
-            total_results += len(data)
-
-            if len(data) < current_limit:
-                break
-            
-            page += 1
-
-        return all_results
-
-            
-
-    def get_recommended_shows(self, ignore_collected = "true", ignore_watchlisted = "false", extended="full", results_to_return=300):
-
-        params =  {           
-            "ignore_collected" : f"{ignore_collected}",
-            "ignore_watchlisted" : f"{ignore_watchlisted}",
-            "extended" : f"{extended}"
-        }
-
-        url = "https://api.trakt.tv/recommendations/shows"
-
-        results = self.api_call(url=url, params=params, header=self.all_headers, max_results=results_to_return)
-
-        return results
 
     def process_recommended_shows(self, data) -> pd.DataFrame:
         all_show_data = []
@@ -211,19 +158,6 @@ class Trakt:
         genre_df = pd.DataFrame(all_genre_data)
 
         return show_df, genre_df
-        
-    def get_history(self, extended="full", results_to_return=10000):
-
-        params =  {           
-            "extended" : f"{extended}"
-        }
-
-        url = "https://api.trakt.tv/sync/history"
-
-        results = self.api_call(url=url, params=params, header=self.all_headers, max_results=results_to_return)
-
-        return results
-
 
     def process_history(self, data) -> pd.DataFrame:
         all_movie_data = []
@@ -336,3 +270,78 @@ class Trakt:
         genre_df = pd.DataFrame(all_genre_data).drop_duplicates()
 
         return movie_df, episode_df, show_df, genre_df
+    
+
+    def api_call_deprecated(self, url, params, header, max_pages=None, max_results=100):
+        '''
+        Deprecated, use api_call for all other calls
+        '''
+        all_results = []
+        page = 1
+        total_results = 0
+
+        while True:
+            if max_pages is not None and page > max_pages:
+                break
+            if total_results >= max_results:
+                break
+
+            remaining_results = max_results - total_results
+            current_limit = min(100, remaining_results)
+
+            api_params = params.copy()
+            api_params['page'] = f"{page}"
+            api_params['limit'] = f"{current_limit}"
+
+            try:
+                response = requests.get(url, params=api_params, headers=header)
+                response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
+                data = response.json()
+            except requests.exceptions.RequestException as e:
+                print(f"Error occurred during API call: {e}")
+                return None  # Return None to indicate failure
+
+            if not response:
+                break
+
+            all_results.extend(data)
+            total_results += len(data)
+
+            if len(data) < current_limit:
+                break
+            
+            page += 1
+
+        return all_results
+
+            
+    def get_history(self, extended="full", results_to_return=10000):
+        '''
+        Deprecated, use api_call method for all calls now
+        '''
+
+        params =  {           
+            "extended" : f"{extended}"
+        }
+
+        url = "https://api.trakt.tv/sync/history"
+
+        results = self.api_call(url=url, params=params, header=self.all_headers, max_results=results_to_return)
+
+        return results
+    
+    def get_recommended_shows(self, ignore_collected = "true", ignore_watchlisted = "false", extended="full", results_to_return=300):
+        '''
+        Deprecated, use api_call method for all calls now
+        '''
+        params =  {           
+            "ignore_collected" : f"{ignore_collected}",
+            "ignore_watchlisted" : f"{ignore_watchlisted}",
+            "extended" : f"{extended}"
+        }
+
+        url = "https://api.trakt.tv/recommendations/shows"
+
+        results = self.api_call(url=url, params=params, header=self.all_headers, max_results=results_to_return)
+
+        return results

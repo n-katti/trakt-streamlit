@@ -14,8 +14,10 @@ def load_main_config(filename, env_path):
     
 def parse_main_config(config):
     access_token = os.getenv(config['tokens']['access_token'])
+    client_id = os.getenv(config['client_id'])
     all_headers = config['all_headers']
-    all_headers['Authorization'].format(trakt_access_token=access_token)
+    all_headers['Authorization'] = str.replace(all_headers['Authorization'], "TOKEN_REPLACE_STRING", access_token)
+    all_headers['trakt-api-key'] = client_id
     config_values = {
                     "url" : config['url'],
                     "client_id" : os.getenv(config['client_id']),

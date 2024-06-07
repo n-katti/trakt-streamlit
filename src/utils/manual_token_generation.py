@@ -16,13 +16,12 @@ def execute():
     load_dotenv()
 
     config = load_config('config.yaml')
-    url = config['api']['url']
-    client_id = os.getenv(config['api']['client_id'])
-    client_secret = os.getenv(config['api']['client_secret'])
-    content_type = config['api']['headers']['content_type']
-    api_version = config['api']['headers']['api_version']
+    url = config['url']
+    client_id = os.getenv(config['client_id'])
+    client_secret = os.getenv(config['client_secret'])
+    token_headers = config['token_headers']
 
-    api = Trakt(client_id=client_id, client_secret=client_secret, content_type=content_type)
+    api = Trakt(client_id=client_id, client_secret=client_secret, token_headers=token_headers)
     # print(api.all_headers)
     device_code, user_code, verification_url = api.get_device_token()
     if device_code:

@@ -82,15 +82,5 @@ def test_process_recommended_shows():
     
     input_details, input_genres = api.process_recommended_shows(input)
 
-    # if (input_details == expected).all().all():
-    #     print("DataFrames are equal")
-    # else:
-    #     print("DataFrames are not equal")
-    #     # Handle the inequality here, if needed
-    # try:
-    #     assert input_details.equals(expected), "Show detail dataframes equal each other"
-    #     print("DataFrames are equal")
-    # except AssertionError:
-    #     print("DataFrames are not equal")
     assert input_details.equals(expected_details), "Show details dataframes do not equal each other"
     assert input_genres.equals(expected_genres), "Genre details dataframes do not equal each other"
