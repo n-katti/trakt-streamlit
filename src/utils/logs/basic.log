@@ -2,3 +2,84 @@
 2024-06-06 20:20:53,569 - root - WARNING - This will also write in basic.log
 2024-06-06 20:24:01,827 - Trakt API Ingestion Logger - INFO - test
 2024-06-06 22:54:16,699 - Trakt API Ingestion Logger - INFO - Unioned and inserted successfully to dim_genres
+2024-06-06 23:15:56,818 - Trakt API Ingestion Logger - INFO - Unioned and inserted successfully to dim_genres
+2024-06-06 23:30:43,761 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:31:02,495 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:33:22,462 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:33:43,526 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:33:43,526 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:34:14,658 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:34:14,658 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:34:14,658 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:21,613 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:21,613 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:21,613 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:21,613 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:36,448 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:36,448 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:36,448 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:36,448 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:36,448 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:38,565 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:38,565 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:38,565 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:38,565 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:35:38,565 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:54:26,139 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:54:28,252 - Trakt API Ingestion Logger - INFO - Table names read from database
+2024-06-06 23:54:46,282 - Trakt API Ingestion Logger - INFO - Unioned and inserted successfully to dim_genres
+2024-06-06 23:55:03,166 - Trakt API Ingestion Logger - INFO - Unioned and inserted successfully to dim_genres
+2024-06-07 00:39:47,421 - Trakt API Ingestion Logger - INFO - Poster for Sopranos (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 00:39:47,526 - Trakt API Ingestion Logger - INFO - Poster for Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 00:40:25,985 - Trakt API Ingestion Logger - INFO - Poster for Sopranos (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 00:40:26,099 - Trakt API Ingestion Logger - INFO - Poster for Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 00:42:30,841 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 00:42:30,901 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 00:49:58,246 - Trakt API Ingestion Logger - INFO - Unioned and inserted successfully to dim_genres
+2024-06-07 00:50:45,697 - Trakt API Ingestion Logger - ERROR - Error occurred during API call: 401 Client Error: Unauthorized for url: http://www.omdbapi.com/?i=tt1475582
+2024-06-07 00:51:02,503 - Trakt API Ingestion Logger - ERROR - Error occurred during API call: 401 Client Error: Unauthorized for url: http://www.omdbapi.com/?i=tt1475582
+2024-06-07 00:52:11,378 - Trakt API Ingestion Logger - ERROR - Error occurred during API call: 401 Client Error: Unauthorized for url: http://www.omdbapi.com/?i=tt1475582
+2024-06-07 00:53:29,701 - Trakt API Ingestion Logger - ERROR - Error occurred during API call: 401 Client Error: Unauthorized for url: http://www.omdbapi.com/?apikey=omdb_api_key&i=tt1475582
+2024-06-07 00:55:56,972 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 00:55:56,974 - Trakt API Ingestion Logger - ERROR - Error downloading poster for Sherlock (IMDb ID: tt1475582)
+2024-06-07 00:55:57,031 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 00:55:57,033 - Trakt API Ingestion Logger - ERROR - Error downloading poster for The Sopranos (IMDb ID: tt0141842)
+2024-06-07 00:57:43,387 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 00:57:43,389 - Trakt API Ingestion Logger - ERROR - Error downloading poster for Sherlock (IMDb ID: tt1475582): Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2024-06-07 00:57:43,447 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 00:57:43,447 - Trakt API Ingestion Logger - ERROR - Error downloading poster for The Sopranos (IMDb ID: tt0141842): Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2024-06-07 00:59:44,295 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 00:59:44,295 - Trakt API Ingestion Logger - ERROR - Error downloading poster for Sherlock (IMDb ID: tt1475582): Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2024-06-07 00:59:44,381 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 00:59:44,381 - Trakt API Ingestion Logger - ERROR - Error downloading poster for The Sopranos (IMDb ID: tt0141842): Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2024-06-07 01:00:52,710 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:00:52,725 - Trakt API Ingestion Logger - ERROR - Error downloading poster for Sherlock (IMDb ID: tt1475582): Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2024-06-07 01:00:52,813 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:00:52,815 - Trakt API Ingestion Logger - ERROR - Error downloading poster for The Sopranos (IMDb ID: tt0141842): Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2024-06-07 01:03:04,691 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:03:04,698 - Trakt API Ingestion Logger - ERROR - Error downloading poster for Sherlock (IMDb ID: tt1475582): Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2024-06-07 01:03:04,756 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:03:04,762 - Trakt API Ingestion Logger - ERROR - Error downloading poster for The Sopranos (IMDb ID: tt0141842): Invalid URL 'None': No scheme supplied. Perhaps you meant https://None?
+2024-06-07 01:05:07,588 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:05:25,878 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:05:26,038 - Trakt API Ingestion Logger - INFO - Poster for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:05:26,106 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:05:26,229 - Trakt API Ingestion Logger - INFO - Poster for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:13:56,367 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:13:56,483 - Trakt API Ingestion Logger - INFO - Poster for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:13:56,547 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:13:56,626 - Trakt API Ingestion Logger - INFO - Poster for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:16:48,580 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:16:48,734 - Trakt API Ingestion Logger - INFO - Poster for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:16:48,812 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:16:48,926 - Trakt API Ingestion Logger - INFO - Poster for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:17:14,731 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:17:14,869 - Trakt API Ingestion Logger - INFO - Poster for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:17:14,965 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:17:15,042 - Trakt API Ingestion Logger - INFO - Poster for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:17:44,604 - Trakt API Ingestion Logger - INFO - Poster URL for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:17:44,705 - Trakt API Ingestion Logger - INFO - Poster for Sherlock (IMDb ID: tt1475582) has been downloaded successfully
+2024-06-07 01:17:44,782 - Trakt API Ingestion Logger - INFO - Poster URL for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:17:44,853 - Trakt API Ingestion Logger - INFO - Poster for The Sopranos (IMDb ID: tt0141842) has been downloaded successfully
+2024-06-07 01:17:44,965 - Trakt API Ingestion Logger - INFO - Poster URL for The Wire (IMDb ID: tt0306414) has been downloaded successfully
+2024-06-07 01:17:45,059 - Trakt API Ingestion Logger - INFO - Poster for The Wire (IMDb ID: tt0306414) has been downloaded successfully

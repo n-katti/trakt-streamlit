@@ -16,10 +16,10 @@ def execute():
     load_dotenv()
 
     config = load_config('config.yaml')
-    url = config['url']
-    client_id = os.getenv(config['client_id'])
-    client_secret = os.getenv(config['client_secret'])
-    token_headers = config['token_headers']
+    url = config['trakt']['url']
+    client_id = os.getenv(config['trakt']['client_id'])
+    client_secret = os.getenv(config['trakt']['client_secret'])
+    token_headers = config['trakt']['token_headers']
 
     api = Trakt(client_id=client_id, client_secret=client_secret, token_headers=token_headers)
     # print(api.all_headers)

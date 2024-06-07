@@ -10,6 +10,7 @@ sys.dont_write_bytecode = True
 sys.path.append(os.path.realpath(__file__).split("trakt-streamlit")[0]+"trakt-streamlit")
 from src.utils.trakt_api import *
 from src.utils.logger_config import *
+import base64
 
 db_connection = sqlite3.connect('trakt_data.db')
 
@@ -20,21 +21,23 @@ def load_main_config(filename, env_path):
         return parse_main_config(config=config)
     
 def parse_main_config(config):
-    access_token = os.getenv(config['tokens']['access_token'])
-    client_id = os.getenv(config['client_id'])
-    all_headers = config['all_headers']
+    access_token = os.getenv(config['trakt']['tokens']['access_token'])
+    client_id = os.getenv(config['trakt']['client_id'])
+    all_headers = config['trakt']['all_headers']
     all_headers['Authorization'] = str.replace(all_headers['Authorization'], "TOKEN_REPLACE_STRING", access_token)
     all_headers['trakt-api-key'] = client_id
     config_values = {
-                    "url" : config['url'],
-                    "client_id" : os.getenv(config['client_id']),
-                    "client_secret" : os.getenv(config['client_secret']),
+                    "url" : config['trakt']['url'],
+                    "client_id" : os.getenv(config['trakt']['client_id']),
+                    "client_secret" : os.getenv(config['trakt']['client_secret']),
                     "access_token" : access_token,
-                    "refresh_token" : os.getenv(config['tokens']['refresh_token']),
-                    "token_last_updated_on" : os.getenv(config['tokens']['token_last_updated_on']),
+                    "refresh_token" : os.getenv(config['trakt']['tokens']['refresh_token']),
+                    "token_last_updated_on" : os.getenv(config['trakt']['tokens']['token_last_updated_on']),
                     "all_headers" : all_headers,
-                    "token_headers" : config['token_headers'],
-                    "endpoints" : config['endpoints']
+                    "token_headers" : config['trakt']['token_headers'],
+                    "endpoints" : config['trakt']['endpoints'],
+                    "omdb_key" : os.getenv(config['omdb']['key']),
+                    "omdb_url" : config['omdb']['url']
                     }
     
     return config_values
@@ -61,6 +64,10 @@ def create_sql_connection(database_name):
 
 def write_table(table_name, df, connection = db_connection, if_exists='replace'):
 
+    # if table_name == 'dim_posters':
+    #     df['encoded_path'] = df['save_path'].apply(lambda p: encode_paths(str(p)))
+    #     df.drop(columns=['save_path'], inplace=True)
+
     # Write DataFrame to SQLite table
     df.to_sql(name=table_name, con=connection, if_exists=if_exists, index=False)
 
@@ -80,6 +87,12 @@ def merge_and_write_tables(input_table_names, new_table_name, if_exists='replace
 
 def close_db_connection(connection = db_connection):
     connection.close()
+
+def encode_paths(path):
+    return base64.b64encode(path.encode('utf-8')).decode('utf-8')
+
+def decode_paths(encoded_path):
+     return base64.b64decode(encoded_path.encode('utf-8')).decode('utf-8')
 
 
     
