@@ -1,4 +1,4 @@
 .env
 trakt_data.db
 samples/
-pycache/*
+__pycache__/*
